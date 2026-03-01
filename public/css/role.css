@@ -1,0 +1,539 @@
+/* ==========================================================================
+   role.css - Change Role Page Styling (Dual Role System)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Global Container
+   ========================================================================== */
+.change-role-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. Header
+   ========================================================================== */
+.role-header {
+    margin-bottom: 2rem;
+}
+
+.role-header h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.role-header h1 i {
+    color: #000000;
+}
+
+/* ==========================================================================
+   3. Search & Filter Section
+   ========================================================================== */
+.role-search-section {
+    background: rgb(255, 255, 255);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.role-search-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+.role-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.role-form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.9rem;
+}
+
+.role-form-group label i {
+    margin-right: 0.5rem;
+    color: #3978ff;
+}
+
+.role-form-group input,
+.role-form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #3978ff;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.role-form-group input:focus,
+.role-form-group select:focus {
+    outline: none;
+    border-color: #188a10;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.btn-role-search {
+    background: linear-gradient(135deg, #3978ff, #2980b9);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-role-search:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 153, 255, 0.3);
+}
+
+.role-table-section {
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.role-table-header {
+    background: linear-gradient(135deg, #2980b9, #2a4c9d);
+    color: rgb(255, 255, 255);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role-table-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.role-result-count {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.role-table-wrapper {
+    overflow-x: auto;
+}
+
+#role-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#role-table thead {
+    background: #f8f9fa;
+}
+
+#role-table thead th {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 5px solid #2a4c9d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#role-table tbody tr {
+    border-bottom: 1px solid #2a4c9d;
+    transition: background-color 0.2s ease;
+}
+
+#role-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+#role-table tbody td {
+    vertical-align: middle;       
+    text-align: center;           
+    padding: 1rem 0.8rem;
+}
+
+/* Kolom Role (untuk dual badge) */
+#role-table td:nth-child(4) {
+    min-width: 240px;
+    white-space: normal;          
+    vertical-align: middle;        
+    text-align: center;            
+    padding: 1rem 0.5rem;
+}
+
+/* ==========================================================================
+   5. Role Badges
+   ========================================================================== */
+.role-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: white;
+    margin: 0.3rem 0.6rem 0.3rem 0;
+    vertical-align: middle;
+    line-height: 1.5;
+    min-width: 90px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Main Roles */
+.role-boss {
+    background: linear-gradient(135deg, #ff6a00, #c0392b);
+}
+
+.role-eksekutif {
+    background: linear-gradient(135deg, #b700ff, #8e44ad);
+}
+
+.role-bisnis {
+    background: linear-gradient(135deg, #00bfff, #2980b9);
+}
+
+.role-premium {
+    background: linear-gradient(135deg, #ff9d00, #e67e22);
+}
+
+.role-ekonomi {
+    background: linear-gradient(135deg, #00ff6a, #229954);
+}
+
+/* Secondary Role (Pengurus) */
+.role-pengurus {
+    color: rgb(0, 0, 0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    animation: pengurusPulse 2s infinite;
+}
+
+.jabatan-pengurus {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.bonus-badge.pengurus-badge {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 2px 6px rgba(102, 126, 234, 0.25);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 6px;
+    display: inline-block;
+}
+
+/* Badge spacing untuk multiple badges */
+.role-badge + .role-badge {
+    margin-left: 0.7rem;
+}
+
+/* Animation untuk badge Pengurus */
+@keyframes pengurusPulse {
+    0%, 100% {
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+    50% {
+        box-shadow: 0 2px 12px rgba(102, 126, 234, 0.6);
+    }
+}
+
+/* ==========================================================================
+   6. Action Buttons
+   ========================================================================== */
+.role-action-cell {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    min-width: 140px;
+}
+
+.btn-change-role {
+    background: linear-gradient(135deg, #2a4c9d, #2980b9);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.btn-change-role:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* ==========================================================================
+   7. Modal
+   ========================================================================== */
+.role-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.role-modal.active {
+    display: flex;
+}
+
+.role-modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.role-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.role-modal-header h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.role-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #95a5a6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.role-modal-close:hover {
+    color: #e74c3c;
+    transform: rotate(90deg);
+}
+
+.role-modal-body {
+    margin-bottom: 1.5rem;
+}
+
+.role-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.role-info p {
+    margin: 0.5rem 0;
+    color: #34495e;
+    font-size: 0.95rem;
+}
+
+.role-info strong {
+    color: #2c3e50;
+}
+
+.role-modal-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-modal-confirm {
+    flex: 1;
+    background: linear-gradient(135deg, #27ae60, #229954);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-modal-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+}
+
+.btn-modal-cancel {
+    flex: 1;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-modal-cancel:hover {
+    background: #7f8c8d;
+}
+
+/* ==========================================================================
+   8. Messages / Toast
+   ========================================================================== */
+.role-message,
+.role-toast-message {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.role-message.success,
+.role-toast-success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.role-message.error,
+.role-toast-error {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+/* ==========================================================================
+   9. Dual Role Layout
+   ========================================================================== */
+.dual-role-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.dual-role-separator {
+    text-align: center;
+    padding: 1rem 0;
+    color: #95a5a6;
+    font-size: 1.2rem;
+    font-weight: bold;
+    grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   10. Responsive Design
+   ========================================================================== */
+@media (max-width: 992px) {
+    #role-table td:nth-child(4) {
+        min-width: 200px;
+    }
+    
+    .role-badge {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .change-role-container {
+        padding: 1rem;
+    }
+
+    .role-search-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .role-table-wrapper {
+        overflow-x: scroll;
+    }
+
+    #role-table {
+        min-width: 800px;
+    }
+
+    .role-modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .dual-role-group {
+        grid-template-columns: 1fr;
+    }
+
+    .role-badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+        min-width: 80px;
+    }
+}

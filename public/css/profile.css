@@ -1,0 +1,499 @@
+/* ==========================================
+   PROFILE.CSS - Profile Page Styles
+   Trans Indopride Dashboard
+   ========================================== */
+
+.profile-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   MAIN LAYOUT GRID
+   ========================================== */
+.profile-main-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 20px;
+    height: calc(100vh - 60px);
+}
+
+/* ==========================================
+   LEFT SIDEBAR - PROFILE CARD
+   ========================================== */
+.profile-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+/* ==========================================
+   PROFILE CARD (Unchanged for reference)
+   ========================================== */
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Photo Section (Unchanged) */
+.profile-photo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.profile-photo-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #3498db;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.photo-upload-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    background: #3498db;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.photo-upload-btn:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+.photo-upload-btn i {
+    color: white;
+    font-size: 18px;
+}
+
+.photo-upload-input {
+    display: none;
+}
+
+/* Info Section (Unchanged) */
+.profile-info-section {
+    width: 100%;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.profile-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.badge-jabatan {
+    background: #ffd700;
+    color: #1a1a1a;
+}
+
+.badge-role {
+    background: #4169e1;
+    color: white;
+}
+
+.badge-status {
+    background: #27ae60;
+    color: white;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.profile-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.profile-detail-item i {
+    font-size: 16px;
+    color: #3498db;
+    width: 20px;
+    margin-top: 2px;
+}
+
+.profile-detail-item .label {
+    font-size: 11px;
+    color: #7f8c8d;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.profile-detail-item .value {
+    font-size: 13px;
+    color: #2c3e50;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+/* ==========================================
+   RIGHT CONTENT AREA
+   ========================================== */
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* ==========================================
+   STATS GRID - Dimodifikasi: Grid menjadi 2 kolom (repeat(2, 1fr)) untuk formasi 2x2, span disesuaikan menjadi 2 untuk item besar (insentif dan total jam)
+   ========================================== */
+.profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Diubah ke 2 kolom untuk 2x2 grid */
+    gap: 20px;
+}
+
+.profile-stat-card {
+    background: white;
+    padding: 20px; /* Konsisten dengan padding lain */
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #3498db;
+    display: flex;
+    flex-direction: column; /* Ditambahkan untuk alignment lebih baik */
+    justify-content: space-between;
+}
+
+.profile-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.stat-card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.stat-card-title {
+    font-size: 14px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.stat-card-value {
+    font-size: 32px; /* Dirapikan: Ukuran lebih besar untuk emphasis pada jam total */
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.stat-card-subtitle {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+/* Total Insentif - Span 2 columns (disesuaikan dengan grid 2 kolom) */
+.profile-stat-card.stat-incentive {
+    grid-column: span 2;
+    text-align: center; /* Ditambahkan: Agar teks lebih rapi jika value adalah jam total */
+}
+
+/* Total Jam - Ditambahkan: Sama seperti insentif, span 2 columns (asumsi ini adalah salah satu stat-card, tambahkan class .stat-total-jam ke elemen HTML terkait) */
+.profile-stat-card.stat-total-jam {
+    grid-column: span 2;
+    text-align: center;
+}
+
+/* Gradient ikon dirapikan: Konsisten dan dikelompokkan */
+.profile-stat-card:nth-child(1) .stat-card-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.profile-stat-card:nth-child(2) .stat-card-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.profile-stat-card:nth-child(3) .stat-card-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.profile-stat-card:nth-child(4) .stat-card-icon {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.profile-stat-card:nth-child(5) .stat-card-icon {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* ==========================================
+   HISTORY SECTION (Dirapikan: Fokus pada duration/jam total di history-item)
+   ========================================== */
+.profile-history-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.history-header h2 {
+    font-size: 20px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-header h2 i {
+    color: #3498db;
+}
+
+.history-filter {
+    padding: 8px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.history-filter:hover {
+    border-color: #3498db;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    background: #e3f2fd;
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.history-item-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.history-item-icon {
+    width: 40px;
+    height: 40px;
+    background: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+.history-item-info .date {
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.history-item-info .vehicle {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+.history-item-right {
+    text-align: right;
+}
+
+.history-item-right .duration {
+    font-size: 18px;
+    color: #27ae60;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.history-item-right .incentive {
+    font-size: 14px;
+    color: #3498db;
+    font-weight: 600;
+}
+
+.no-history {
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+}
+
+.no-history i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+@media (max-width: 1400px) {
+    .profile-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .profile-stat-card.stat-incentive,
+    .profile-stat-card.stat-total-jam {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 1024px) {
+    .profile-main-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .profile-sidebar {
+        max-width: 100%;
+    }
+    
+    .profile-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-main-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px; /* Dirapikan: Gap lebih kecil untuk mobile */
+    }
+    
+    .profile-stat-card.stat-incentive,
+    .profile-stat-card.stat-total-jam {
+        grid-column: span 1;
+    }
+
+    .stat-card-value {
+        font-size: 28px; /* Dikecilkan sedikit untuk mobile */
+    }
+
+    .history-item {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .history-item-left {
+        flex-direction: column;
+    }
+
+    .history-item-right {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-name {
+        font-size: 20px;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-photo-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    .stat-card-value {
+        font-size: 24px; /* Lebih rapi di layar kecil */
+    }
+}

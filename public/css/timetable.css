@@ -1,0 +1,670 @@
+/* Reset untuk timetable container */
+.timetable-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Header Section */
+.timetable-header {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.timetable-header h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.timetable-header h1 i {
+    color: #3498db;
+}
+
+/* ==========================================
+   SUMMARY CARDS
+   ========================================== */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.summary-card:nth-child(2) {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.summary-card:nth-child(3) {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.summary-card:nth-child(4) {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.summary-card-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* Rank Badge - Mobil dengan Angka */
+.rank-badge {
+    position: relative;
+    display: inline-block;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.rank-badge i {
+    opacity: 0.9;
+}
+
+.badge-number {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: #ff4757;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 3px solid white;
+}
+
+.summary-card-title {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.summary-card-value {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.summary-card-subtitle {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* ==========================================
+   SEARCH & FILTER SECTION
+   ========================================== */
+.search-filter-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.search-filter-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group label i {
+    color: #3498db;
+    font-size: 16px;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.btn-search {
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-search:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btn-search:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   TABLE SECTION
+   ========================================== */
+.table-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-title i {
+    color: #3498db;
+}
+
+.result-count {
+    font-size: 14px;
+    color: #7f8c8d;
+    padding: 8px 16px;
+    background: #ecf0f1;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   TABLE STYLES
+   ========================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1100px;
+    table-layout: auto; 
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+thead th {
+    padding: 18px 15px;
+    text-align: center;          
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+    background: #f8f9fa;
+    transform: scale(1.002);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+tbody td {
+    padding: 16px 15px;
+    color: #2c3e50;
+    font-size: 14px;
+    text-align: center;          
+    vertical-align: middle;
+}
+
+tbody td:nth-child(3) { 
+    text-align: left;
+}
+*/
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.duration-cell {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 15px;
+}
+
+.incentive-cell,
+.bonus-cell {
+    padding: 16px 15px;
+    text-align: center;
+}
+
+.incentive-container,
+.bonus-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    gap: 15px;
+    flex-wrap: wrap;             
+}
+
+.incentive-checkbox {
+    margin: 0 auto;
+}
+
+/* Responsive tetap aman */
+@media (max-width: 768px) {
+    thead th,
+    tbody td {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+}
+
+/* ==========================================
+   STATUS BADGES - JABATAN
+   ========================================== */
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.jabatan-eksekutif {
+    background: #ffd700;
+    color: #1a1a1a;
+}
+
+.jabatan-bisnis {
+    background: #4169e1;
+    color: white;
+}
+
+.jabatan-premium {
+    background: #9370db;
+    color: white;
+}
+
+.jabatan-ekonomi {
+    background: #20b2aa;
+    color: white;
+}
+
+/* Keep old status for backward compatibility */
+.status-motor {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-mobil {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-standby {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* ==========================================
+   DURATION CELL
+   ========================================== */
+.duration-cell {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 15px;
+}
+
+/* ==========================================
+   INCENTIVE CELL & CHECKBOX
+   ========================================== */
+.incentive-cell {
+    padding: 16px 15px;
+}
+
+.incentive-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.incentive-amount {
+    font-weight: 700;
+    color: #27ae60;
+    font-size: 14px;
+    flex: 1;
+}
+
+/* ==========================================
+   BONUS CELL & STYLING
+   ========================================== */
+.bonus-cell {
+    padding: 16px 15px;
+}
+
+.bonus-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.bonus-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.bonus-daily {
+    font-size: 13px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.bonus-weekly {
+    font-size: 14px;
+    color: #e67e22;
+    font-weight: 700;
+}
+
+.bonus-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 3px;
+    box-shadow: 0 2px 6px rgba(240, 147, 251, 0.4);
+}
+
+/* ==========================================
+   CUSTOM CHECKBOX (untuk Insentif & Bonus)
+   ========================================== */
+.incentive-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.incentive-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 28px;
+    width: 28px;
+    background-color: #f0f0f0;
+    border: 2px solid #d0d0d0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.incentive-checkbox:hover .checkmark {
+    background-color: #e0e0e0;
+    border-color: #3498db;
+}
+
+.incentive-checkbox input:checked ~ .checkmark {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.incentive-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.incentive-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Loading state for checkbox */
+.incentive-checkbox.loading .checkmark {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* ==========================================
+   NO DATA STATE
+   ========================================== */
+.no-data {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+.no-data i {
+    font-size: 64px;
+    margin-bottom: 15px;
+    opacity: 0.3;
+    display: block;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+/* Tablet - 1024px */
+@media (max-width: 1024px) {
+    .search-filter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile - 768px */
+@media (max-width: 768px) {
+    .timetable-header {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .timetable-header h1 {
+        font-size: 22px;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .summary-card {
+        padding: 20px;
+    }
+
+    .summary-card-value {
+        font-size: 26px;
+    }
+    
+    .summary-card-icon {
+        font-size: 28px;
+    }
+
+    .search-filter-section {
+        padding: 20px;
+    }
+
+    .search-filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-search {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .table-section {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .table-title {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    thead th,
+    tbody td {
+        padding: 12px 10px;
+    }
+    
+    .time-cell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .status-badge {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+    
+    .bonus-info {
+        gap: 3px;
+    }
+    
+    .bonus-daily {
+        font-size: 12px;
+    }
+    
+    .bonus-weekly {
+        font-size: 13px;
+    }
+    
+    .bonus-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+
+/* Mobile Small - 480px */
+@media (max-width: 480px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-card {
+        padding: 18px;
+    }
+    
+    .timetable-header h1 {
+        font-size: 20px;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    thead th,
+    tbody td {
+        padding: 10px 8px;
+    }
+}

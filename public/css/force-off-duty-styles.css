@@ -1,0 +1,229 @@
+/**
+ * Force Off Duty & Duty Status Styles
+ * Add this to your existing CSS files
+ */
+
+/* ========================================== */
+/* FORCE OFF DUTY BUTTON (Home Page) */
+/* ========================================== */
+
+.driver-cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px !important;
+}
+
+.btn-force-off-duty {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.btn-force-off-duty:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-force-off-duty:active {
+    transform: scale(0.98);
+}
+
+.btn-force-off-duty i {
+    font-size: 16px;
+}
+
+/* Force Off Duty All Button Container */
+#force-off-duty-all-container {
+    margin-top: 20px;
+    text-align: center;
+    padding: 16px;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 12px;
+}
+
+.btn-force-off-duty-all {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-force-off-duty-all:hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+.btn-force-off-duty-all:active {
+    transform: translateY(0);
+}
+
+.btn-force-off-duty-all i {
+    font-size: 18px;
+}
+
+/* ========================================== */
+/* DUTY STATUS CARD (Profile Page) */
+/* ========================================== */
+
+.duty-status-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 24px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e2e8f0;
+}
+
+.duty-status-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.duty-status-info {
+    flex: 1;
+}
+
+.duty-status-label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.duty-status-value {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.btn-off-duty {
+    width: 100%;
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-off-duty:hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+.btn-off-duty:active {
+    transform: translateY(0);
+}
+
+.btn-off-duty:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-off-duty i {
+    font-size: 18px;
+}
+
+.duty-info-message {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #1e40af;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.duty-info-message i {
+    font-size: 18px;
+    color: #3b82f6;
+}
+
+/* ========================================== */
+/* RESPONSIVE */
+/* ========================================== */
+
+@media (max-width: 768px) {
+    .driver-cell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .btn-force-off-duty {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-force-off-duty-all {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .duty-status-card {
+        padding: 20px 16px;
+    }
+    
+    .duty-status-value {
+        font-size: 18px;
+    }
+    
+    .btn-off-duty {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+}
+
+/* ========================================== */
+/* ANIMATIONS */
+/* ========================================== */
+
+@keyframes pulse-red {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+}
+
+.btn-force-off-duty-all:hover {
+    animation: pulse-red 1.5s infinite;
+}

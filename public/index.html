@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trans Indopride - Dashboard</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/add.css">
+    <link rel="stylesheet" href="css/timetable.css">
+    <link rel="stylesheet" href="css/role.css">
+    <link rel="stylesheet" href="css/force-off-duty-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="mobile-overlay"></div>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="LOGO_TRANS_2.png">
+        </div>
+
+        <div class="menu-group">
+            <ul class="menu-home">
+                <li data-page="home" class="active"><i class="fas fa-home"></i> Home</li>
+            </ul>
+        </div>
+        
+        <div class="menu-group">
+            <ul class="menu-profile">
+                <li data-page="profile"><i class="fas fa-user"></i> Profile</li>
+            </ul>
+        </div>
+
+        <div class="menu-group">
+            <ul class="menu-timetable">
+                <li data-page="timetable"><i class="fas fa-calendar-alt"></i> Timetable</li>
+            </ul>
+        </div>
+        
+        <div class="menu-group">
+            <ul class="menu-adduser">
+                <li data-page="add-user"><i class="fas fa-user-plus"></i> Add User</li>
+            </ul>
+        </div>
+
+        <div class="menu-group">
+            <ul class="menu-role">
+                <li data-page="change-role"><i class="fas fa-exchange-alt"></i> Change Role</li>
+            </ul>
+        </div>
+            <div class="sidebar-footer-user">
+            <div class="sidebar-user-info">
+                <div class="sidebar-user-avatar"><i class="fas fa-user-circle"></i></div>
+                <div class="sidebar-user-details">
+                    <div class="sidebar-user-name" id="sidebar-username">Loading...</div>
+                    <div class="sidebar-user-role" id="sidebar-userrole">-</div>
+                </div>
+            </div>
+            <button class="btn-sidebar-logout" id="btn-logout">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </aside>
+    
+    <main class="content">
+        <div id="page-home" class="page-content active">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Dashboard</h1>
+                <div class="datetime-container">
+                    <div class="date-display">
+                        <i class="fas fa-calendar"></i>
+                        <span id="current-date"></span>
+                    </div>
+                    <div class="time-display">
+                        <i class="fas fa-clock"></i>
+                        <span id="current-time"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-content">
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color: #f39c12;"><i class="fas fa-id-card"></i></div>
+                        <h3 class="stat-title">Drivers</h3>
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">0 driver</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color: #27ae60;"><i class="fas fa-clock"></i></div>
+                        <h3 class="stat-title">Jam</h3>
+                        <div class="stat-value">0 Menit</div>
+                        <div class="stat-label">0 Menit</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color: #8e44ad;"><i class="fas fa-history"></i></div>
+                        <h3 class="stat-title">Jam Total</h3>
+                        <div class="stat-value">0 Menit</div>
+                        <div class="stat-label">0 Menit</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color: #e74c3c;"><i class="fas fa-calculator"></i></div>
+                        <h3 class="stat-title">Est. Gaji</h3>
+                        <div class="stat-value">$0</div>
+                        <div class="stat-label">$0</div>
+                    </div>
+                </div>
+                
+                <div class="vehicle-status-section">
+                    <table class="status-info-table">
+                        <thead>
+                            <tr>
+                                <th class="status-header">KOTA - MOTOR</th>
+                                <th class="status-header">KOTA - MOBIL</th>
+                                <th class="status-header">STANDBY</th>
+                            </tr>
+                        </thead>
+                        <tbody id="status-table-body">
+                            <!-- Rows akan diisi otomatis oleh JavaScript -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="status-footer">
+                                <td id="total-motor">Total Motor: 0</td>
+                                <td id="total-mobil">Total Mobil: 0</td>
+                                <td id="total-standby">Total Standby: 0</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    <div class="status-buttons">
+                        <button id="btn-motor" class="status-btn btn-motor">KOTA - MOTOR</button>
+                        <button id="btn-mobil" class="status-btn btn-mobil">KOTA - MOBIL</button>
+                        <button id="btn-standby" class="status-btn btn-standby">STANDBY</button>
+                        <button id="btn-off-duty" class="status-btn btn-off-duty" style="display: none;">OFF DUTY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="force-off-duty-all-container" style="display: none;"></div>
+
+        <div id="page-profile" class="page-content">
+            <div class="profile-container">
+                <div class="profile-main-grid">
+                    <!-- LEFT SIDEBAR - Profile Card -->
+                    <div class="profile-sidebar">
+                        <div class="profile-card">
+                            <!-- Photo Section -->
+                            <div class="profile-photo-section">
+                                <div class="profile-photo-container">
+                                    <img 
+                                        id="profile-photo" 
+                                        src="https://ui-avatars.com/api/?name=Ziko+Harnadii&size=200&background=3498db&color=fff&bold=true" 
+                                        alt="Profile Photo" 
+                                        class="profile-photo"
+                                    >
+                                    <label for="photo-upload-input" class="photo-upload-btn" title="Ganti Foto">
+                                        <i class="fas fa-camera"></i>
+                                    </label>
+                                    <input 
+                                        type="file" 
+                                        id="photo-upload-input" 
+                                        class="photo-upload-input" 
+                                        accept="image/*"
+                                    >
+                                </div>
+                            </div>
+
+                            <!-- Info Section -->
+                            <div class="profile-info-section">
+                                <h2 class="profile-name" id="profile-name">Ziko Harnadii</h2>
+                                
+                                <div class="profile-badges">
+                                    <span class="profile-badge badge-jabatan">
+                                        <i class="fas fa-star"></i> Eksekutif
+                                    </span>
+                                    <span class="profile-badge badge-status">
+                                        <i class="fas fa-circle"></i> Aktif
+                                    </span>
+                                </div>
+
+                                <div class="profile-details">
+                                    <div id="duty-status-container"></div>
+                                    <div class="profile-detail-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <div>
+                                            <span class="label">Email</span>
+                                            <span class="value" id="profile-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fa80939195d4929b88949b9e9393ba8e889b948993949e958a88939e9fd4999597">[email&#160;protected]</a></span>
+                                        </div>
+                                    </div>
+                                    <div class="profile-detail-item">
+                                        <i class="fas fa-phone"></i>
+                                        <div>
+                                            <span class="label">Telepon</span>
+                                            <span class="value" id="profile-phone">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="profile-detail-item">
+                                        <i class="fas fa-calendar-check"></i>
+                                        <div>
+                                            <span class="label">Bergabung</span>
+                                            <span class="value" id="profile-join">15 Januari 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT CONTENT - Stats & History -->
+                    <div class="profile-content">
+                        <div class="profile-stats-grid">
+                            <!-- Total Jam Hari Ini -->
+                            <div class="profile-stat-card">
+                                <div class="stat-card-header">
+                                    <div class="stat-card-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="stat-card-title">Total Jam Hari Ini</div>
+                                </div>
+                                <div class="stat-card-value" id="stat-today">0j</div>
+                                <div class="stat-card-subtitle">Jam kerja hari ini</div>
+                            </div>
+
+                            <!-- Total Jam Minggu Ini -->
+                            <div class="profile-stat-card">
+                                <div class="stat-card-header">
+                                    <div class="stat-card-icon">
+                                        <i class="fas fa-calendar-week"></i>
+                                    </div>
+                                    <div class="stat-card-title">Total Jam Minggu Ini</div>
+                                </div>
+                                <div class="stat-card-value" id="stat-week">0j</div>
+                                <div class="stat-card-subtitle">Jam kerja minggu ini</div>
+                            </div>
+
+                            <!-- Total Jam Bulan Ini -->
+                            <div class="profile-stat-card">
+                                <div class="stat-card-header">
+                                    <div class="stat-card-icon">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <div class="stat-card-title">Total Jam Bulan Ini</div>
+                                </div>
+                                <div class="stat-card-value" id="stat-month">0j</div>
+                                <div class="stat-card-subtitle">Jam kerja bulan ini</div>
+                            </div>
+
+                            <!-- Total Jam All Time -->
+                            <div class="profile-stat-card">
+                                <div class="stat-card-header">
+                                    <div class="stat-card-icon">
+                                        <i class="fas fa-history"></i>
+                                    </div>
+                                    <div class="stat-card-title">Total Jam Keseluruhan</div>
+                                </div>
+                                <div class="stat-card-value" id="stat-total">0j</div>
+                                <div class="stat-card-subtitle">Total akumulasi jam</div>
+                            </div>
+
+                            <!-- Total Insentif -->
+                            <div class="profile-stat-card stat-incentive">
+                                <div class="stat-card-header">
+                                    <div class="stat-card-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div class="stat-card-title">Total Insentif yang Didapat</div>
+                                </div>
+                                <div class="stat-card-value" id="stat-incentive">$IDP 0</div>
+                                <div class="stat-card-subtitle">Dari 0x duty</div>
+                            </div>
+                        </div>
+
+                        <!-- History Section -->
+                        <div class="profile-history-section">
+                            <div class="history-header">
+                                <h2><i class="fas fa-history"></i> Riwayat Duty</h2>
+                                <select id="history-filter" class="history-filter">
+                                    <option value="all">Semua</option>
+                                    <option value="week">Minggu Ini</option>
+                                    <option value="month">Bulan Ini</option>
+                                </select>
+                            </div>
+                            <div class="history-list" id="history-list">
+                                <!-- Diisi oleh JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-timetable" class="page-content">
+            <div class="timetable-container">
+                <!-- Header -->
+                <div class="timetable-header">
+                    <h1><i class="fas fa-calendar-alt"></i> Timetable Driver</h1>
+                </div>
+
+                <!-- Summary Cards - Top 4 Driver Ranking -->
+                <div class="summary-cards">
+                    <!-- Diisi otomatis oleh JavaScript -->
+                </div>
+
+                <!-- Search & Filter -->
+                <div class="search-filter-section">
+                    <div class="search-filter-grid">
+                        <div class="form-group">
+                            <label><i class="fas fa-search"></i> Cari Nama Driver</label>
+                            <input type="text" id="search-name" placeholder="Masukkan nama driver...">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Dari Tanggal</label>
+                            <input type="date" id="date-from">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Sampai Tanggal</label>
+                            <input type="date" id="date-to">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn-search" id="btn-search">
+                                <i class="fas fa-search"></i> Cari
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <div class="table-title">
+                            <i class="fas fa-table"></i> Data Timetable
+                        </div>
+                        <div class="result-count" id="result-count">Menampilkan 0 data</div>
+                    </div>
+
+                    <table id="timetable-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Driver</th>
+                                <th>Tanggal</th>
+                                <th>Jabatan</th>
+                                <th>Total Jam</th>
+                                <th>Insentif</th>
+                                <th>Makan Minum</th>
+                            </tr> 
+                        </thead>
+                        <tbody id="timetable-tbody">
+                            <!-- Data akan diisi otomatis oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+<div id="page-add-user" class="page-content">
+    <div class="add-user-container">
+        <div class="header-section">
+            <h1><i class="fas fa-user-plus"></i> Tambah Akun Armada</h1>
+        </div>
+
+        <div class="form-card">
+            <form id="user-form">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="nama-armada">Nama Armada*</label>
+                        <input type="text" id="nama-armada">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="email">User Email *</label>
+                        <input type="email" id="email">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="password">User Password *</label>
+                        <input type="password" id="password">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="role">Role *</label>
+                        <select id="role" required>
+                            <option value="">Pilih role</option>
+                            <option value="Boss">Boss</option>
+                            <option value="Eksekutif">Eksekutif</option>
+                            <option value="Bisnis">Bisnis</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Ekonomi">Ekonomi</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn" class="btn-primary">
+                        <i class="fas fa-user-plus"></i> Tambah Akun Armada
+                    </button>
+                    <button type="reset" id="reset-btn" class="btn-secondary">
+                        <i class="fas fa-undo"></i> Reset Form
+                    </button>
+                </div>
+
+                <div id="success-message" class="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Akun armada berhasil ditambahkan!</span>
+                </div>
+
+                <div id="error-message" class="error-message" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="error-text"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="page-change-role" class="page-content">
+        <div class="change-role-container">
+            <!-- Header -->
+            <div class="role-header">
+                <h1><i class="fas fa-user-tag"></i>Ubah Role Armada</h1>
+            </div>
+
+            <!-- Search & Filter -->
+            <div class="role-search-section">
+                <div class="role-search-grid">
+                    <div class="role-form-group">
+                        <label><i class="fas fa-search"></i> Cari Nama</label>
+                        <input type="text" id="role-search-name" placeholder="Ketik nama...">
+                    </div>
+                    <div class="role-form-group">
+                        <label><i class="fas fa-filter"></i> Filter Role</label>
+                        <select id="role-filter-role">
+                            <option value="">Semua Role</option>
+                            <option value="Boss">Boss</option>
+                            <option value="Eksekutif">Eksekutif</option>
+                            <option value="Bisnis">Bisnis</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Ekonomi">Ekonomi</option>
+                        </select>
+                    </div>
+                    <button id="btn-role-search" class="btn-role-search">
+                        <i class="fas fa-search"></i> Cari
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="role-table-section">
+                <div class="role-table-header">
+                    <div class="role-table-title">
+                        <i class="fas fa-table"></i> Daftar Armada
+                    </div>
+                    <div class="role-result-count" id="role-result-count">
+                        Menampilkan 0 data
+                    </div>
+                </div>
+                
+                <div class="role-table-wrapper">
+                    <table id="role-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody id="role-tbody">
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 2rem;">
+                                    Loading...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal (DUAL ROLE VERSION) -->
+    <div id="role-modal" class="role-modal">
+        <div class="role-modal-content">
+            <div class="role-modal-header">
+                <h2><i class="fas fa-exchange-alt"></i> Ubah Role</h2>
+                <button class="role-modal-close" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="role-modal-body">
+                <!-- Info Armada -->
+                <div class="role-info">
+                    <p><strong>Nama:</strong> <span id="modal-armada-name">-</span></p>
+                    <p><strong>Role Utama:</strong> <span id="modal-current-main-role">-</span></p>
+                    <p><strong>Role Pengurus:</strong> <span id="modal-current-secondary-role">-</span></p>
+                </div>
+
+                <!-- Dual Role Selection -->
+                <div class="dual-role-group">
+                    <div class="role-form-group">
+                        <label><i class="fas fa-star"></i> Role Utama Baru</label>
+                        <select id="modal-new-main-role">
+                            <option value="">Pilih role utama</option>
+                        </select>
+                    </div>
+                    
+                    <div class="role-form-group">
+                        <label><i class="fas fa-users-cog"></i> Role Pengurus</label>
+                        <select id="modal-new-secondary-role">
+                            <option value="">Tidak ada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Info Box -->
+                <div class="role-info" style="background: #e8f4fd; border-left: 4px solid #3498db;">
+                    <p style="margin: 0; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> 
+                        <strong>Info:</strong> Role Pengurus (HRD/FINANCE/OPS) dapat bonus +25 makan minum per minggu
+                    </p>
+                </div>
+            </div>
+            
+            <div class="role-modal-actions">
+                <button id="btn-role-confirm" class="btn-modal-confirm" type="button">
+                    <i class="fas fa-check"></i> Simpan
+                </button>
+                <button id="btn-role-cancel" class="btn-modal-cancel" type="button">
+                    <i class="fas fa-times"></i> Batal
+                </button>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+        <!-- Force Off Duty All Button Container (Admin/Pengurus Only) -->
+        <div id="force-off-duty-all-container" style="display: none;"></div>
+
+        <!-- Profile Duty Status Container -->
+        <div id="duty-status-container"></div>
+    </div>
+
+</main>
+
+<!-- JavaScript Files - CORRECT LOADING ORDER! -->
+<script src="js/api.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/home.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/adduser.js"></script>
+<script src="js/role.js"></script>
+<script src="js/timetable.js"></script>
+
+</body>
+</html>
