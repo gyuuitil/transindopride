@@ -7,6 +7,29 @@ const { asyncHandler } = require('../middleware/errorHandler');
 const router = express.Router();
 router.use(protect);
 
+router.put('/:id/duty-status', authenticateToken, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { duty_status, vehicle_type } = req.body;
+        
+        const [result] = await pool.query(
+            'UPDATE users SET duty_status = ?, vehicle_type = ? WHERE id = ?',
+            [duty_status, vehicle_type, id]
+        );
+        
+        res.json({ 
+            success: true, 
+            message: 'Duty status updated successfully' 
+        });
+    } catch (error) {
+        console.error('Error updating duty status:', error);
+        res.status(500).json({ 
+            success: false, 
+            message: error.message 
+        });
+    }
+});
+
 router.get('/', asyncHandler(async (req, res) => {
     const { status, limit = 100 } = req.query;
     let query = 'SELECT id, name, email, primary_role, secondary_role, jabatan, vehicle_type, status, duty_status, join_date, phone FROM users WHERE 1=1';
